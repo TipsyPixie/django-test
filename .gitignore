@@ -1,0 +1,20 @@
+### IDE
+.idea
+.vscode
+
+### temporary files
+__pycache__
+*.pyc
+*.swp
+
+### logs
+/logs
+*.log
+
+### dev DB
+*.sqlite3
+/database
+
+### environment
+/venv
+.env

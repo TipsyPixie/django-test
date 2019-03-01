@@ -1,0 +1,3 @@
+# Rekindle
+
+Sample Django project
