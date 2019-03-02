@@ -103,17 +103,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'lightstage.User'
 
+# Logging
 # https://docs.djangoproject.com/en/2.1/ref/settings/#logging
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-
-    },
-    'filters': {
-
-    },
     'handlers': {
         'file': {
             'level': 'DEBUG',
@@ -129,6 +124,24 @@ LOGGING = {
         },
     },
 }
+
+# Caches
+# https://docs.djangoproject.com/en/2.1/ref/settings/#caches
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
+# Sessions
+# https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
+
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+SESSION_CACHE_ALIAS = "default"
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = 60 * 20
+SESSION_SAVE_EVERY_REQUEST = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -147,8 +160,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Prevent re-loader process from sharing the same log file
-# https://stackoverflow.com/questions/26682413/django-rotating-file-handler-stuck-when-file-is-equal-to-maxbytes
-if DEBUG and os.environ.get('RUN_MAIN', 'false') != 'true':
-    LOGGING = {}

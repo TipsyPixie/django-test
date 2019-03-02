@@ -34,6 +34,24 @@ DATABASES = {
     }
 }
 
+# Caches
+# https://docs.djangoproject.com/en/2.1/ref/settings/#caches
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://localhost:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# Sessions
+# https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
 # Debug toolbar
 # https://django-debug-toolbar.readthedocs.io/en/latest/
 
