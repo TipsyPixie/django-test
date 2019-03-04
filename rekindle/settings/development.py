@@ -9,12 +9,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
-# Application definition
-
-INSTALLED_APPS.insert(0, 'debug_toolbar')
-
-MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -51,14 +45,4 @@ CACHES = {
 # https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-
-# Debug toolbar
-# https://django-debug-toolbar.readthedocs.io/en/latest/
-
-INTERNAL_IPS = ['127.0.0.1', 'localhost']
-
-# Prevent re-loader process from sharing the same log file
-# https://stackoverflow.com/questions/26682413/django-rotating-file-handler-stuck-when-file-is-equal-to-maxbytes
-
-if DEBUG and os.environ.get('RUN_MAIN', 'false') != 'true':
-    LOGGING = {}
+SESSION_CACHE_ALIAS = "default"

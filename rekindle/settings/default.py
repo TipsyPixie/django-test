@@ -138,7 +138,6 @@ CACHES = {
 # https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
 
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
-SESSION_CACHE_ALIAS = "default"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 60 * 20
 SESSION_SAVE_EVERY_REQUEST = True
