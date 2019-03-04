@@ -14,17 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 Note:
-    This app uses flask-style URL patterns
+    This app uses flask-style URL pattern
     https://github.com/afg984/django-fsu
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include
+from django_fsu import url
 
 import lightstage
 
 urlpatterns = [
-    path(route='admin/', view=admin.site.urls),
-    path(route='', view=include(lightstage.urls)),
-    path(route='<path:path>/', view=include(lightstage.urls))
+    url(path='admin/', view=admin.site.urls),
+    url(path='', view=include(lightstage.urls)),
 ]

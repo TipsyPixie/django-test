@@ -7,7 +7,7 @@ SECRET_KEY = 'gVuRG403XdM0bWjpurEJVhuK29WIS4aoFdirUXm6NZC/SGHGcGEZH4t8XAvtU16dFl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '[::1]']
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -32,17 +32,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.1/ref/settings/#caches
 
 CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://localhost:6379/1",
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://localhost:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
     }
 }
-
-# Sessions
-# https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
-
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"

@@ -1,15 +1,12 @@
-from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.models import UserManager
+from django.contrib.auth.models import UserManager, AbstractUser
 from django.db.models import EmailField, BooleanField
 from django_extensions.db.models import TimeStampedModel
 
 
-class User(AbstractBaseUser, TimeStampedModel):
+class User(AbstractUser, TimeStampedModel):
     username = EmailField(max_length=128, null=False, unique=True, db_index=True)
-    is_active = BooleanField(null=False, default=False)
     is_deleted = BooleanField(null=False, default=False)
     is_blocked = BooleanField(null=False, default=False)
-    is_admin = BooleanField(null=False, default=False)
 
     class CustomUserManager(UserManager):
         use_in_migrations = False
@@ -32,8 +29,10 @@ class User(AbstractBaseUser, TimeStampedModel):
         def create_superuser(self, username, email=None, password=None, **extra_fields):
             extra_fields.setdefault('is_active', True)
             extra_fields.setdefault('is_blocked', False)
-            if not extra_fields.setdefault('is_admin', True):
-                raise ValueError('Superuser must have is_admin=True')
+            if not extra_fields.setdefault('is_superuser', True):
+                raise ValueError('Superuser must have is_superuser=True')
+            if not extra_fields.setdefault('is_staff', True):
+                raise ValueError('Superuser must have is_staff=True')
             return self.create_user(username, email, password, **extra_fields)
 
     objects = CustomUserManager()

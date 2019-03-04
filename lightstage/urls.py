@@ -14,14 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 
 Note:
-    This app uses flask-style URL patterns
+    This app uses flask-style URL pattern
     https://github.com/afg984/django-fsu
 """
 
-from django.urls import path
+from django_fsu import url
 
 from lightstage import views
 
 urlpatterns = [
-    path(route='', view=views.index),
+    url(path='', view=views.index),
 ]
