@@ -1,4 +1,4 @@
-"""rekindle URL Configuration
+"""lightstage URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -18,13 +18,10 @@ Note:
     https://github.com/afg984/django-fsu
 """
 
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-import lightstage
+from lightstage import views
 
 urlpatterns = [
-    path(route='admin/', view=admin.site.urls),
-    path(route='', view=include(lightstage.urls)),
-    path(route='<path:path>/', view=include(lightstage.urls))
+    path(route='', view=views.index),
 ]
