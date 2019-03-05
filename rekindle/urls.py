@@ -21,10 +21,12 @@ Note:
 from django.contrib import admin
 from django.urls import include
 from django_fsu import url
+from rest_framework.schemas import get_schema_view
 
 import lightstage
 
 urlpatterns = [
     url(path='admin/', view=admin.site.urls),
+    url(path='schema/', view=get_schema_view(title='Rekindle API', description='Temporary API')),
     url(path='', view=include(lightstage.urls)),
 ]

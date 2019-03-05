@@ -119,6 +119,7 @@ LOGGING = {
     },
     'loggers': {
         'default': {
+            'level': 'DEBUG',
             'handlers': ['file'],
             'propagate': False,
         },
@@ -142,6 +143,7 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 60 * 20
 SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKE_NAME = 'rekindle_sessionid'
 
 # CORS
 # https://github.com/ottoyiu/django-cors-headers

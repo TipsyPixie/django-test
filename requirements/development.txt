@@ -1,12 +1,14 @@
 backcall==0.1.0
 certifi==2018.11.29
 chardet==3.0.4
+coreapi==2.3.3
 coreschema==0.0.4
 decorator==4.3.2
 Django==2.1.7
 django-cors-headers==2.4.1
 django-extensions==2.1.6
 django-filter==2.1.0
+django-fsu==0.1.2
 django-redis==4.10.0
 djangorestframework==3.9.2
 idna==2.8
@@ -25,6 +27,7 @@ psycopg2-binary==2.7.7
 ptyprocess==0.6.0
 Pygments==2.3.1
 pytz==2018.9
+PyYAML==3.13
 redis==3.2.0
 requests==2.21.0
 six==1.12.0

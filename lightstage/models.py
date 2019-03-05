@@ -38,7 +38,14 @@ class User(AbstractUser, TimeStampedModel):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'username'
+    EMAIL_FIELD = 'username'
 
     @classmethod
     def normalize_username(cls, username):
         return cls.objects.normalize_email(username)
+
+
+# class SessionLog(TimeStampedModel):
+#     session_key = models.CharField(_('session key'), max_length=40, primary_key=True)
+#     session_data = models.TextField(_('session data'))
+#     expire_date = models.DateTimeField(_('expire date'), db_index=True)

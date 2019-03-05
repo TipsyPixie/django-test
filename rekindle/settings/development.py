@@ -40,3 +40,17 @@ CACHES = {
         }
     }
 }
+
+# Sessions
+# https://docs.djangoproject.com/en/2.1/ref/settings/#sessions
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+# Django Rest Framework
+# https://www.django-rest-framework.org/api-guide/
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
+}
