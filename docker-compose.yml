@@ -11,7 +11,12 @@ services:
     ports:
       - 5432:5432
 
-  redis:
+  redis-cache:
     image: redis:latest
     ports:
       - 6379:6379
+
+  redis-messenger:
+    image: redis:latest
+    ports:
+      - 6380:6379

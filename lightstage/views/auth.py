@@ -5,13 +5,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK
 
 from lightstage.exceptions import UserCredentialWrong, UserInactive
-from lightstage.utils import parse_request
-
-
-@api_view(['GET'])
-@csrf_exempt
-def index(request):
-    return Response(status=HTTP_200_OK)
+from lightstage.utils import parse_metadata
 
 
 @api_view(['POST'])
@@ -27,7 +21,7 @@ def sign_in(request):
 
     login(request=request, user=user)
 
-    metadata = parse_request(request)
+    metadata = parse_metadata(request)
     request.session.update(metadata)
 
     return Response(status=HTTP_200_OK)

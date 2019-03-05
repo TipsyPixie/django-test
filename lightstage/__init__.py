@@ -1,1 +1,1 @@
-from . import views, urls
+from . import urls, views

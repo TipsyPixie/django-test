@@ -24,6 +24,6 @@ from lightstage import views
 
 urlpatterns = [
     url(path='', view=views.index),
-    url(path='sign_in/', view=views.sign_in),
-    url(path='sign_out/', view=views.sign_out),
+    url(path='sign_in/', view=views.auth.sign_in),
+    url(path='sign_out/', view=views.auth.sign_out),
 ]

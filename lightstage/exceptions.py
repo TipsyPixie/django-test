@@ -10,3 +10,8 @@ class UserCredentialWrong(PermissionDenied):
 class UserInactive(PermissionDenied):
     default_detail = _('user not activated')
     default_code = 'user_inactive'
+
+
+class CountryChanged(PermissionDenied):
+    default_detail = _('country changed')
+    default_code = 'country_changed'
