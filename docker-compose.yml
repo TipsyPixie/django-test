@@ -16,7 +16,14 @@ services:
     ports:
       - 6379:6379
 
-  redis-messenger:
-    image: redis:latest
+  rabbit:
+    image: rabbitmq:3.8-rc-management
+    environment:
+      RABBITMQ_DEFAULT_USER: developer
+      RABBITMQ_DEFAULT_PASS: IAmThouThouArtI
     ports:
-      - 6380:6379
+      - 5672:5672
+      - 15672:15672
+
+
+

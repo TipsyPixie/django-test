@@ -6,6 +6,7 @@
 __pycache__
 *.pyc
 *.swp
+*.pid
 
 ### logs
 /logs
@@ -18,3 +19,6 @@ __pycache__
 ### environment
 /venv
 .env
+
+### Celery
+celerybeat-schedule

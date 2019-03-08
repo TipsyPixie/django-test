@@ -143,7 +143,7 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_AGE = 60 * 20
 SESSION_SAVE_EVERY_REQUEST = True
-SESSION_COOKE_NAME = 'rekindle_sessionid'
+SESSION_COOKIE_NAME = 'rekindle_sessionid'
 
 # CORS
 # https://github.com/ottoyiu/django-cors-headers
@@ -167,3 +167,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Celery
+# http://docs.celeryproject.org/en/latest/userguide/configuration.html
+
+CELERY_BROKER_URL = 'amqp://developer:IAmThouThouArtI@localhost'
+CELERY_AMQP_TASK_RESULT_EXPIRES = 3600
